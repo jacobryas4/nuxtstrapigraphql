@@ -16,10 +16,10 @@
 
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
-              <!-- <li v-for="category in categories">
+              <li v-for="category in categories">
                 <router-link :to="{ name: 'categories-id', params: { id: category.id }}" tag="a">{{ category.name }}
                 </router-link>
-              </li> -->
+              </li>
           </ul>
         </div>
     </nav>
@@ -33,10 +33,10 @@
                     <h1 style="font-family: Staatliches;">Strapi blog</h1>
                     <div class="uk-width-1-2@s">
                         <ul class="uk-nav-primary uk-nav-parent-icon" uk-nav>
-                          <!-- <li v-for="category in categories">
+                          <li v-for="category in categories">
                             <router-link class="uk-modal-close" :to="{ name: 'categories-id', params: { id: category.id }}" tag="a">{{ category.name }}
                             </router-link>
-                          </li> -->
+                          </li>
                         </ul>
                     </div>
                     <p class="uk-text-light">Built with strapi</p>
@@ -50,8 +50,20 @@
 </template>
 
 <script>
+import categoriesQuery from '~/apollo/queries/category/categories'
 
 export default {  
+  data() {
+    return {
+      categories: []
+    }
+  },
+  apollo: {
+    categories: {
+      prefetch: true,
+      query: categoriesQuery
+    }
+  }
 }
 
 </script>
