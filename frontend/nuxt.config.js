@@ -86,7 +86,7 @@ export default {
       },
     },
     // optional
-    watchLoading: '~/plugins/apollo-watch-loading-handler.js',
+    // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
     // optional
     errorHandler: '~/plugins/apollo-error-handler.js',
     // required
